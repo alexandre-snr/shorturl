@@ -17,7 +17,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.post('/', (req, res) => {
+app.use('/', express.static('./client/build'));
+
+app.post('/new', (req, res) => {
     const { dest } = req.body;
 
     if (typeof(dest) != "string") {
