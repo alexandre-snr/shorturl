@@ -1,7 +1,6 @@
 const port = 8080;
 const dbPath = 'db.json';
 
-const express = require('express');
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 
@@ -11,8 +10,12 @@ const db = low(adapter)
 db.defaults({ links: [], count: 0 })
   .write();
 
+const express = require('express');
+const cors = require('cors');
+
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.post('/', (req, res) => {
     const { dest } = req.body;
