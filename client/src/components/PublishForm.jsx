@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import config from '../config';
 
 class PublishForm extends React.Component {
 
@@ -21,7 +22,7 @@ class PublishForm extends React.Component {
             dest: ''
         });
 
-        axios.post('http://localhost:8080/new', {
+        axios.post(`${config.API_URL}/new`, {
             "dest": dest
         }).then((res) => {
             this.props.onPublishSuccess(res.data.short);

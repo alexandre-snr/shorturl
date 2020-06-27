@@ -1,10 +1,11 @@
 import React from 'react';
+import config from '../config';
 
 class PublishResult extends React.Component {
 
     render() {
         return <div>
-            Result: <a href={"http://localhost:8080/" + this.props.short}>{this.props.short}</a>
+            Result: <a href={`${config.API_URL}/${this.props.short}`}>{this.props.short}</a>
         </div>
     }
 
