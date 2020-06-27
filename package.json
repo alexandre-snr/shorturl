@@ -1,0 +1,17 @@
+{
+  "name": "shorturl",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node .",
+    "watch": "nodemon . -e js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "lowdb": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
