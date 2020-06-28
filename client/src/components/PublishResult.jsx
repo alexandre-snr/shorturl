@@ -20,15 +20,15 @@ class PublishResult extends React.Component {
         return <Paper elevation={2}>
             <Box m={2} mt={3} p={0}>
                 <Grid container alignItems="center" spacing={2}>
-                    <Grid item xs={5}>
+                    <Grid item xs={12} md={5}>
                         <Typography>{this.props.dest}</Typography>
                     </Grid>
-                    <Grid item xs={5}>
+                    <Grid item xs={12} md={5}>
                         <Typography style={{textAlign: "right"}}>
                             <Link href={`${config.API_URL}/${this.props.short}`}>{`${config.API_URL}/${this.props.short}`}</Link>
                         </Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={12} md={2}>
                         <Button className="fullSize" onClick={this.onCopyClicked} variant="outlined" color="primary" size="large" endIcon={<FileCopyIcon />}>Copy</Button>
                     </Grid>
                 </Grid>
