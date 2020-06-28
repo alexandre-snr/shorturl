@@ -6,16 +6,15 @@ ShortURL is a simple URL shortening app made using technologies such as NodeJS, 
 
 ## Installation
 
-This project can be deployed with docker as a single container. You must change the public URL of the server in the client's config file: "/client/src/config.js".$
+This project can be deployed with docker as a single container. You must change the public URL of the server in the client's config file: ```/client/src/config.js```.
 
 Then build the image using the following command: 
 ```docker build -t <tag>:<version> ."```
-The image is built and ready to use.
-
+The image is built and ready to use. The web server listens on port 8080.
 
 ## Contributions
 
-Pull requests are welcome. This is a small training project, but feel free to improve it.
+This is a small training project, but feel free to improve it, pull requests are welcome.
 
 ## License
 
