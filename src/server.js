@@ -1,6 +1,7 @@
 const port = process.env.PORT || 8080;
+const driver = process.env.DRIVER || 'file';
 
-const db = require('./drivers/file');
+const db = require(`./drivers/${driver}`);
 
 const express = require('express');
 const cors = require('cors');
