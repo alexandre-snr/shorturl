@@ -22,7 +22,7 @@ app.use('/', express.static('./client/build'));
 app.post('/new', (req, res) => {
     const { dest } = req.body;
 
-    if (typeof(dest) != "string") {
+    if (typeof(dest) != "string" || dest.length <= 0) {
         res.sendStatus(400);
         return;
     }
