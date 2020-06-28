@@ -23,12 +23,12 @@ class PublishResult extends React.Component {
                     <Grid item xs={5}>
                         <Typography>{this.props.dest}</Typography>
                     </Grid>
-                    <Grid item xs={5} justify="flex-end">
+                    <Grid item xs={5}>
                         <Typography style={{textAlign: "right"}}>
                             <Link href={`${config.API_URL}/${this.props.short}`}>{`${config.API_URL}/${this.props.short}`}</Link>
                         </Typography>
                     </Grid>
-                    <Grid item xs={2} justify="flex-end">
+                    <Grid item xs={2}>
                         <Button className="fullSize" onClick={this.onCopyClicked} variant="outlined" color="primary" size="large" endIcon={<FileCopyIcon />}>Copy</Button>
                     </Grid>
                 </Grid>
