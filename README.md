@@ -10,7 +10,7 @@ This project can be deployed with docker as a single container. You must change 
 
 Then build the image using the following command: 
 ```docker build -t <tag>:<version>```.
-The image is built and ready to use. The web server listens on port 8080.
+The image is built and ready to use. The web server listens on port 8080 by default but it can be changed using the environment variable ```PORT```.
 
 ## Contributions
 

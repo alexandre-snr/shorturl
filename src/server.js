@@ -1,4 +1,4 @@
-const port = 8080;
+const port = process.env.PORT || 8080;
 const dbPath = 'db.json';
 
 const low = require('lowdb')

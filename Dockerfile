@@ -11,5 +11,6 @@ RUN yarn install
 RUN yarn build
 
 WORKDIR /app
+ENV PORT 8000
 EXPOSE 8080
 CMD yarn start
