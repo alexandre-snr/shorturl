@@ -1,6 +1,9 @@
 import React from 'react';
+import { TextField, Button, Grid } from '@material-ui/core';
+import SendIcon from '@material-ui/icons/Send';
 import axios from 'axios';
 import config from '../config';
+import './PublishForm.css';
 
 class PublishForm extends React.Component {
 
@@ -18,6 +21,9 @@ class PublishForm extends React.Component {
     onClick() {
         const { dest } = this.state;
 
+        if (dest.length <= 0)
+            return;
+
         this.setState({
             dest: ''
         });
@@ -25,7 +31,7 @@ class PublishForm extends React.Component {
         axios.post(`${config.API_URL}/new`, {
             "dest": dest
         }).then((res) => {
-            this.props.onPublishSuccess(res.data.short);
+            this.props.onPublishSuccess(res.data.short, dest);
         }).catch((err) => {
             this.props.onPublishError(err);
         });
@@ -39,11 +45,14 @@ class PublishForm extends React.Component {
 
     render() {
 
-        return <div>
-            <label htmlFor="destInput">Destination:</label>
-            <input type="text" name="destInput" id="destInput" onChange={this.handleChange} value={this.state.dest} />
-            <button onClick={this.onClick}>Send</button>
-        </div>
+        return <Grid container spacing={3}>
+            <Grid item xs={10}>
+                <TextField id="filled-basic" label="Destination" variant="filled" fullWidth onChange={this.handleChange} value={this.state.dest} />
+            </Grid>
+            <Grid item xs={2}>
+                <Button className="fullSize" onClick={this.onClick} variant="outlined" color="primary" size="large" endIcon={<SendIcon />}>Shorten</Button>
+            </Grid>
+        </Grid>
 
     }
 
