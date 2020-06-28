@@ -29,7 +29,7 @@ class PublishForm extends React.Component {
             dest: ''
         });
 
-        axios.post(`${config.API_URL}/new`, {
+        axios.post(`${config.API_URL}/`, {
             "dest": dest
         }).then((res) => {
             this.props.onPublishSuccess(res.data.short, dest);
