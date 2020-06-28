@@ -12,6 +12,7 @@ class PublishForm extends React.Component {
 
         this.onClick = this.onClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleKeypress = this.handleKeypress.bind(this);
 
         this.state = {
             dest: ''
@@ -43,11 +44,16 @@ class PublishForm extends React.Component {
         });
     }
 
+    handleKeypress(e) {
+        if (e.key === 'Enter')
+            this.onClick();
+    }
+
     render() {
 
         return <Grid container spacing={3}>
             <Grid item xs={10}>
-                <TextField id="filled-basic" label="Destination" variant="filled" fullWidth onChange={this.handleChange} value={this.state.dest} />
+                <TextField id="filled-basic" label="Destination" variant="filled" fullWidth onChange={this.handleChange} onKeyPress={this.handleKeypress} value={this.state.dest} />
             </Grid>
             <Grid item xs={2}>
                 <Button className="fullSize" onClick={this.onClick} variant="outlined" color="primary" size="large" endIcon={<SendIcon />}>Shorten</Button>
