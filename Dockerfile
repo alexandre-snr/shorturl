@@ -14,7 +14,7 @@ WORKDIR /app
 
 ENV PORT 8000
 
-EXPOSE 8080
-VOLUME /app/db.json
+EXPOSE 8000
+VOLUME /app
 
 CMD yarn start
