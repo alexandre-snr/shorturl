@@ -5,6 +5,8 @@ import CallMissedOutgoingIcon from '@material-ui/icons/CallMissedOutgoing';
 import PublishForm from './components/PublishForm';
 import PublishResult from './components/PublishResult';
 
+const localStorageKey = "history";
+
 class App extends React.Component {
 
     constructor(props) {
@@ -14,8 +16,14 @@ class App extends React.Component {
         this.onPublishError = this.onPublishError.bind(this);
         this.hideError = this.hideError.bind(this);
 
+        const localHistoryStr = localStorage.getItem(localStorageKey);
+        let localHistory = [];
+
+        if (localHistoryStr != null)
+            localHistory = JSON.parse(localHistoryStr);
+
         this.state = {
-            results: [],
+            results: localHistory,
             errorShown: false
         };
     }
@@ -25,6 +33,8 @@ class App extends React.Component {
             results: [ {short: short, dest: dest} ].concat(this.state.results),
             errorShown: this.state.errorShown
         });
+
+        localStorage.setItem(localStorageKey, JSON.stringify(this.state.results));
     }
 
     onPublishError() {
@@ -58,8 +68,8 @@ class App extends React.Component {
                 <PublishForm onPublishSuccess={this.onPublishSuccess} onPublishError={this.onPublishError} />
             </Box>
             {
-                this.state.results.map((result) => {
-                    return <PublishResult short={result.short} dest={result.dest} key={result} />
+                this.state.results.map((result, index) => {
+                    return <PublishResult short={result.short} dest={result.dest} key={index} />
                 })
             }
         </Container>
