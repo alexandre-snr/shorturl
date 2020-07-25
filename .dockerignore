@@ -1,4 +1,4 @@
 /node_modules
-/db.json
+/store/db.json
 /client/build
 /client/node_modules
