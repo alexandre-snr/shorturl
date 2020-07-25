@@ -16,6 +16,6 @@ ENV PORT 8000
 ENV FRONTEND_HOSTNAME localhost
 
 EXPOSE 8000
-VOLUME /app
+VOLUME /app/store
 
 CMD yarn start

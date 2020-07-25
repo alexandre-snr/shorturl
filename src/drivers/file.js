@@ -23,7 +23,7 @@ function select(short) {
     return results[0].dest;
 }
 
-const dbPath = 'db.json';
+const dbPath = 'store/db.json';
 
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
