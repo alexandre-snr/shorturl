@@ -3,7 +3,7 @@
 ShortURL is a simple URL shortening app made using technologies such as NodeJS, Express, React, LowDb, Material-UI
 
 ![Screenshot](https://raw.githubusercontent.com/alexandre-snr/shorturl/medias/example.png)
-
+Here is a live demo: [https://shorturl.alexandresauner.fr](https://shorturl.alexandresauner.fr)
 ## Installation
 
 This project can be deployed with docker as a single container. You must change the public URL of the server in the client's config file: ```/client/src/config.js```.
