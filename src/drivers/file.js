@@ -1,11 +1,10 @@
+const { v4: uuidv4 } = require('uuid');
+
 function insert(dest) {
-    const short = db.get('count').value()
+    const short = uuidv4();
 
     db.get('links')
         .push({ 'short': short.toString(), 'dest': dest })
-        .write()
-
-    db.update('count', (n) => { return n + 1 })
         .write()
 
     return short;
@@ -31,7 +30,7 @@ const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync(dbPath)
 const db = low(adapter)
 
-db.defaults({ links: [], count: 0 })
+db.defaults({ links: [] })
   .write();
 
 module.exports = {
