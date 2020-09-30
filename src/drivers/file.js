@@ -1,7 +1,9 @@
 const { v4: uuidv4 } = require('uuid');
 
 function insert(dest) {
-    const short = uuidv4();
+    const short = uuidv4().split('-')[0];
+    while (select(short))
+        short = uuidv4().split('-')[0];
 
     db.get('links')
         .push({ 'short': short.toString(), 'dest': dest })
