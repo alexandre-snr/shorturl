@@ -23,9 +23,7 @@ function insert(dest) {
     while (select(short))
         short = uuidv4().split('-')[0];
 
-    const release = lockfile.lockSync(dbPath, {
-        retries: 32
-    });
+    const release = lockfile.lockSync(dbPath);
     db.get('links')
         .push({ 'short': short.toString(), 'dest': dest })
         .write()
